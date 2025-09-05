@@ -1,40 +1,20 @@
-function conversao(tipo){
-    let iNumber = document.getElementById('input-number').value;
-    let result = document.getElementById('output-number');
-    var arr = [];
-
-    switch (tipo) {
-        case 'db':
-            arr = [];
-            while (iNumber > 0) {
-                arr.push(iNumber % 2);
-                iNumber = Math.floor(iNumber / 2);
-            }
-            return result.value = arr.reverse().join('');
-            break;
-        case 'bd':
-            for (let i = 0; i < iNumber.length; i++) {
-                console.log(iNumber[i]);
-                if (iNumber[i] != 1 && iNumber[i] != 0) {
-                    return result.value = 'Número inválido';
-                } else {
-                    
-                }
-            }
-            break;
-        case 'dh':
-            
-            break;
-        case 'hd':
-            
-            break;
-        case 'bh':
-            
-            break;
-        case 'hb':
-            
-            break;
-        default:
-            break;
+function decToBin(num) {
+    num = num.toString(); // Converte para string
+    let bin ="";
+    while (parseInt(num) > 0) {
+        bin = (parseInt(num) % 2).toString() + bin; // Pega o resto da divisão por 2
+        num = Math.floor(parseInt(num) / 2).toString(); // Divide por 2 e arredonda para baixo
     }
+    return bin;
 }
+
+function binToDec(bin) {
+    bin = bin.toString()
+    dec = 0;
+    for (let i = 0; i < bin.length; i++) {
+        console.log(bin[i] * (2 ** (bin.length - 1 - i)))
+        dec += bin[i] * (2 ** (bin.length - i - 1))
+    }
+    return dec.toString();
+}
+
